@@ -1,6 +1,6 @@
-"""Main Menu - Version 1
+"""Main Menu - Version 2
 A component to display the main menu and branch to other components
-"""
+a welcome message will be displayed the first time the main menu is opened"""
 
 import easygui as eg  # importing easygui as 'eg' to save time later
 

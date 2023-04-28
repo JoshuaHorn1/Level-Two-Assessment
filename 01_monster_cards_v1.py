@@ -2,7 +2,8 @@
 Trialling dictionary vs list
 """
 
-cards = {
+# A dictionary containing some values of the monster cards
+cards_dictionary = {
     "Stoneling": {
         "Strength": 7,
         "Cunning": 15,
@@ -14,17 +15,21 @@ cards = {
         "Cunning": 19,
         "Stealth": 21,
         "Speed": 6
-    },
-    "Dawnmirage": {
-        "Strength": 5,
-        "Cunning": 22,
-        "Stealth": 18,
-        "Speed": 15
-    },
-    "Blazegolem": {
-        "Strength": 15,
-        "Cunning": 6,
-        "Stealth": 23,
-        "Speed": 1
-    },
+    }
 }
+
+# A list containing some value of the monster cards
+cards_list = [
+    ["Stoneling",
+     [["Strength", 7],
+     ["Speed", 1],
+     ["Stealth", 25],
+     ["Cunning", 15]
+     ],
+    ["Vexscream",
+     [["Strength", 7],
+     ["Speed", 1],
+     ["Stealth", 25],
+     ["Cunning", 15]
+     ]
+]
