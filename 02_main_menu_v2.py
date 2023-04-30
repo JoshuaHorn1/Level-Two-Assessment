@@ -9,17 +9,18 @@ proceed = eg.buttonbox("Hello! Welcome to the Monster Card System!\n" "What woul
 while proceed != "Exit":  # create a 'while loop' to incorporate functions later on
     if proceed == "Find Card":  # if 'Find Card' button is pressed, will run 'Find Card' component
         print(">find card<")
-        proceed == eg.buttonbox("How would you like to proceed?", "MAIN MENU",
-                                choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
+        proceed = eg.buttonbox("How would you like to proceed?", "MAIN MENU",
+                               choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
     elif proceed == "Add Card":  # if ' Add Card button is pressed, etc...
         print(">add card<")
-        proceed == eg.buttonbox("How would you like to proceed?", "MAIN MENU",
-                                choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
+        proceed = eg.buttonbox("How would you like to proceed?", "MAIN MENU",
+                               choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
     elif proceed == "List Cards":
         print(">list cards<")
-        proceed == eg.buttonbox("How would you like to proceed?", "MAIN MENU",
-                                choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
+        proceed = eg.buttonbox("How would you like to proceed?", "MAIN MENU",
+                               choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
     elif proceed == "Help":
         print(">show help menu<")
-        proceed == eg.buttonbox("How would you like to proceed?", "MAIN MENU",
-                                choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
+        proceed = eg.buttonbox("How would you like to proceed?", "MAIN MENU",
+                               choices=("Find Card", "Add Card", "List Cards", "Help", "Exit"))
+print(">exits program<")

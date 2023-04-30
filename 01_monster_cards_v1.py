@@ -1,4 +1,5 @@
 """Monster Cards - Version 1
+A component to store all the details of the Monster Cards
 Trialling dictionary vs list
 """
 
@@ -25,11 +26,11 @@ cards_list = [
      ["Speed", 1],
      ["Stealth", 25],
      ["Cunning", 15]
-     ],
+     ]],
     ["Vexscream",
      [["Strength", 7],
      ["Speed", 1],
      ["Stealth", 25],
      ["Cunning", 15]
      ]
-]
+]]

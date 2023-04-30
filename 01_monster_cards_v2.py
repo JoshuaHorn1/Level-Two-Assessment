@@ -1,4 +1,5 @@
 """Monster Cards - Version 2
+A component to store all the details of the Monster Cards
 Developed as dictionary
 """
 
@@ -65,3 +66,5 @@ cards = {
         "Speed": 19
     },
 }
+
+print(cards)
