@@ -4,8 +4,9 @@ Added 01_monster_cards_v2
 Added 02_main_menu_v5
 """
 
-# Imports...
+# Imports/Globals...
 import easygui as eg  # importing easygui as 'eg' to save time later
+global cards
 
 
 # Lists/Dictionaries...
