@@ -1,6 +1,7 @@
 """Main Menu - Version 3
 A component to display the main menu and branch to other components
-Converted to a function"""
+Converted to a function after trialling
+"""
 
 import easygui as eg  # importing easygui as 'eg' to save time later
 

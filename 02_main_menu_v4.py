@@ -1,10 +1,8 @@
 """Main Menu - Version 4
 A component to display the main menu and branch to other components
 Added instructions if user is using for first time
-Shortened code - more efficient"""
-
-instructions = "This program"
-
+Shortened code - more efficient
+"""
 
 import easygui as eg  # importing easygui as 'eg' to save time later
 
@@ -24,9 +22,11 @@ def main_menu(proceed):
     print(">exits program<")
 
 
-new_user = eg.buttonbox("Welcome to the Monster Card System!\n"
-                        "Would you like to see the instructions?", "Welcome", choices=("Yes", "No"))
+new_user = eg.buttonbox("Welcome to the Monster Card System!\nWould you like to a short set of instructions?",
+                        "Welcome!", choices=("Yes", "No"))
 if new_user == "Yes":
-    eg.msgbox(f"{instructions}", "INSTRUCTIONS")
+    eg.msgbox("This program allows stores the details of Monster Cards, and allows you to search through them, add new "
+              "ones, delete ones, remake ones, or list them and export the full details to the python console."
+              "\n\nFarther information about each button can be accessed from the help menu", "Instructions")
 main_menu(eg.buttonbox("What would you like to do?", "MAIN MENU",
                        choices=("Find Card", "Add Card", "List Cards", "Help", "Exit")))
