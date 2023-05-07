@@ -1,7 +1,6 @@
-"""Add Monster - Version 1
+"""Add Monster - Version 2
 A component to add a new monster card to dictionary
-Gets user input card name
-Gets statistics for each attribute of card
+Displays created card details and asks for user proceed prompt
 """
 import easygui as eg
 cards = {
@@ -80,4 +79,6 @@ for item in attributes:
     attribute_value = eg.integerbox(f"What is {card_name}'s {item}? (1-25)", "Enter Attribute", lowerbound=1, upperbound=25)
     card_stats.update({item: attribute_value})
 full_card = ({card_name: card_stats})
-print(full_card)
+items = "\n".join([f"{item}: {stat}" for item, stat in card_stats.items()])
+proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
+                       "Card Details", choices=("Use", "Edit", "Cancel"))
