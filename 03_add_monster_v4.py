@@ -2,8 +2,7 @@
 A component to add a new monster card to dictionary
 Converted component to a function after trialling
 Allowed 3.1 None Checker to call main_menu function rather than quit
-Added 02_main_menu_v5 for testing
-Added comments
+Added 02_main_menu_v6 for testing
 """
 import easygui as eg
 cards = {
@@ -103,11 +102,11 @@ def add_monster():
     if proceed == "Use":
         cards.update(full_card)
         eg.msgbox(f"{card_name} has been added to the dictionary.", "Card Added")
-        quit()
+        return
     elif proceed == "Edit":
         print(">edit card<")
     else:
-        quit()
+        return
 
 
 def main_menu(proceed):
