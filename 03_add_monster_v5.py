@@ -1,4 +1,4 @@
-"""Add Monster - Version 4
+"""Add Monster - Version 5
 A component to add a new monster card to dictionary
 Removed 'print's that were included for testing
 User prompt text changes
@@ -67,45 +67,49 @@ cards = {
         "Speed": 19
     },
 }
-card_stats = {}
-attributes = ["Strength", "Cunning", "Stealth", "Speed"]
+attributes = ["Strength", "Cunning", "Stealth", "Speed"]  # a list containing all the different variables of a card
 
 
 def none_checker(check):
-    if check is None:
+    if check is None:  # checks if the given variable is None (if cancel has been pressed)
+        # If check is None, call on the main menu function again. If not, do nothing
         main_menu(eg.buttonbox("What would you like to do?", "MAIN MENU",
                                choices=("Find Card", "Add Card", "List Cards", "Help", "Exit")))
 
 
 def add_monster():
+    card_stats = {}  # creates a dictionary to store data for card statistics
     card_name = eg.enterbox("What is the name of the new Monster Card?", "Enter Name")
-    none_checker(card_name)
-    card_name = card_name.capitalize()
-    while card_name == "" or card_name in cards:
+    none_checker(card_name)  # calls on none checker function
+    card_name = card_name.capitalize()  # if none checker returns nothing, capitalise the card name
+    while card_name == "" or card_name in cards:  # checks if user input is original or blank
         if card_name == "":
-            eg.msgbox("This box cannot be empty.", "Error")
+            eg.msgbox("This box cannot be empty.", "Error")  # display error message (card blank)
         elif card_name in cards:
+            # Displays error message (card already exists)
             eg.msgbox("This card name already exists. Please enter a unique name.", "Error")
+        # Gets user input card name again
         card_name = eg.enterbox("What is the name of the new Monster Card?", "Enter Name")
-        none_checker(card_name)
-        card_name.capitalize()
-    for item in attributes:
+        none_checker(card_name)  # calls on none checker function
+        card_name = card_name.capitalize()  # if none checker returns nothing, capitalise the card name
+    for item in attributes:  # for each attribute, get user input value
         attribute_value = eg.integerbox(f"What is {card_name}'s {item}? (1-25)",
                                         f"Enter {item}", lowerbound=1, upperbound=25)
-        none_checker(attribute_value)
-        card_stats.update({item: attribute_value})
-    full_card = ({card_name: card_stats})
-    items = "\n".join([f"{item}: {stat}" for item, stat in card_stats.items()])
+        none_checker(attribute_value)  # checks if the user ever cancels
+        card_stats.update({item: attribute_value})  # if none checker returns nothing, add value to dictionary
+    full_card = ({card_name: card_stats})  # join all the user details into one new dictionary
+    items = "\n".join([f"{item}: {stat}" for item, stat in card_stats.items()])  # formats text
+    # Displays the complete card and gets user input for how to proceed
     proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
                            "Card Details", choices=("Use", "Edit", "Cancel"))
-    if proceed == "Use":
-        cards.update(full_card)
-        eg.msgbox(f"{card_name} has been added to the dictionary.", "Card Added")
-        return
-    elif proceed == "Edit":
+    if proceed == "Use":  # checks if user clicks 'Use'
+        cards.update(full_card)  # adds new card to dictionary
+        eg.msgbox(f"{card_name} has been added to the dictionary.", "Card Added")  # display message
+        return  # returns to main menu
+    elif proceed == "Edit":  # checks if user clicks 'Edit'
         print(">edit card<")
-    else:
-        return
+    else:  # checks if user clicked 'Cancel'
+        return  # returns to main menu
 
 
 def main_menu(proceed):
