@@ -1,9 +1,6 @@
-"""Find Monster - Version 1
+"""Find Monster - Version 3
 A Component to find specific cards within the 'cards' dictionary.
-Added 3.1 None Checker for testing (edited version)
-Added 2. Main Menu for testing
-Developed code
-Trialling function vs non-function
+Added comments
 """
 import easygui as eg  # importing easygui as 'eg' to save time later
 global cards
@@ -76,48 +73,28 @@ def none_checker(check):
         quit()
 
 
-cards_list = []
-for item in cards:
-    cards_list.append(item)
-card_name = eg.choicebox("Here are all the cards currently in the system.", "Cards Found", choices=cards_list)
-none_checker(card_name)
-card_name = card_name.capitalize()
-card_stats = cards.get(card_name)
-items = "\n".join([f"{monster}: {stat}" for monster, stat in card_stats.items()])
-proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
-                       "Card Details", choices=("Edit", "Delete", "Cancel"))
-if proceed == "Edit":
-    print(">edit card<")
-elif proceed == "Delete":
-    confirm = eg.buttonbox(f"Please confirm you want to delete the card '{card_name}'.",
-                           "Confirm Delete", choices=("Confirm", "Cancel"))
-    if confirm == "Confirm":
-        cards.pop(card_name)
-        eg.msgbox(f"'{card_name} deleted.", "Card Deleted")
-else:
-    quit()
-
-
 def find_monster():
-    cards_list = []
-    for item in cards:
+    cards_list = []  # create a list to enter the names of monster cards
+    for item in cards:  # for each monster card, append its name to list
         cards_list.append(item)
+    # Prompts user to select a monster card from the list
     card_name = eg.choicebox("Here are all the cards currently in the system.", "Cards Found", choices=cards_list)
-    none_checker(card_name)
-    card_name = card_name.capitalize()
-    card_stats = cards.get(card_name)
-    items = "\n".join([f"{monster}: {stat}" for monster, stat in card_stats.items()])
+    none_checker(card_name)  # checks if card_name = None
+    card_name = card_name.capitalize()  # if not, capitalise
+    card_stats = cards.get(card_name)  # import the stats from the selected card
+    items = "\n".join([f"{monster}: {stat}" for monster, stat in card_stats.items()])  # formats the text
+    # Display formatted details of the monster card and prompt user for input to proceed
     proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
                            "Card Details", choices=("Edit", "Delete", "Cancel"))
-    if proceed == "Edit":
+    if proceed == "Edit":  # if user presses the "Edit" button, edit card
         print(">edit card<")
-    elif proceed == "Delete":
+    elif proceed == "Delete":  # if delete, ask to confirm delete
         confirm = eg.buttonbox(f"Please confirm you want to delete the card '{card_name}'.",
                                "Confirm Delete", choices=("Confirm", "Cancel"))
-        if confirm == "Confirm":
+        if confirm == "Confirm":  # if they confirm, delete card
             cards.pop(card_name)
-            eg.msgbox(f"'{card_name} deleted.", "Card Deleted")
-    else:
+            eg.msgbox(f"'{card_name}' deleted.", "Card Deleted")  # display confirmation message
+    else:  # if Cancel, return to main menu.
         return
 
 

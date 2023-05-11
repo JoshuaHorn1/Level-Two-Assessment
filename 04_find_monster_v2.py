@@ -1,9 +1,7 @@
-"""Find Monster - Version 1
+"""Find Monster - Version 2
 A Component to find specific cards within the 'cards' dictionary.
-Added 3.1 None Checker for testing (edited version)
-Added 2. Main Menu for testing
-Developed code
-Trialling function vs non-function
+Developed as function
+Text changes
 """
 import easygui as eg  # importing easygui as 'eg' to save time later
 global cards
@@ -73,29 +71,7 @@ cards = {
 
 def none_checker(check):
     if check is None:  # checks if the given variable is None (if cancel has been pressed)
-        quit()
-
-
-cards_list = []
-for item in cards:
-    cards_list.append(item)
-card_name = eg.choicebox("Here are all the cards currently in the system.", "Cards Found", choices=cards_list)
-none_checker(card_name)
-card_name = card_name.capitalize()
-card_stats = cards.get(card_name)
-items = "\n".join([f"{monster}: {stat}" for monster, stat in card_stats.items()])
-proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
-                       "Card Details", choices=("Edit", "Delete", "Cancel"))
-if proceed == "Edit":
-    print(">edit card<")
-elif proceed == "Delete":
-    confirm = eg.buttonbox(f"Please confirm you want to delete the card '{card_name}'.",
-                           "Confirm Delete", choices=("Confirm", "Cancel"))
-    if confirm == "Confirm":
-        cards.pop(card_name)
-        eg.msgbox(f"'{card_name} deleted.", "Card Deleted")
-else:
-    quit()
+        return
 
 
 def find_monster():
@@ -116,7 +92,7 @@ def find_monster():
                                "Confirm Delete", choices=("Confirm", "Cancel"))
         if confirm == "Confirm":
             cards.pop(card_name)
-            eg.msgbox(f"'{card_name} deleted.", "Card Deleted")
+            eg.msgbox(f"'{card_name}' deleted.", "Card Deleted")
     else:
         return
 

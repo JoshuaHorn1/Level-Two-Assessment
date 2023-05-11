@@ -3,6 +3,8 @@ Components added after being tested/trialled and finalised
 Added 03_add_monster_v5 (and 3.1 None Checker Component)
 Added 'attributes' list from 03_add_monster_v5 component
 Calls add_monster() function from main menu
+Added 04_find_monster_v5
+Calls find_monster() from main menu
 """
 
 # Imports/Globals...
@@ -89,7 +91,7 @@ def main_menu(proceed):
     while confirm != "Yes - Quit":
         while proceed != "Exit":  # create a 'while loop' to incorporate functions later on
             if proceed == "Find Card":  # if 'Find Card' button is pressed, will run 'Find Card' component
-                print(">find card<")
+                find_monster()
             elif proceed == "Add Card":  # if ' Add Card button is pressed, etc...
                 add_monster()
             elif proceed == "List Cards":
@@ -140,6 +142,36 @@ def add_monster():
         print(">edit card<")
     else:  # checks if user clicked 'Cancel'
         return  # returns to main menu
+
+
+def find_monster():
+    cards_list = []  # create a list to enter the names of monster cards
+    for item in cards:  # for each monster card, append its name to list
+        cards_list.append(item)
+    # Prompts user to select a monster card from the list
+    card_name = eg.choicebox("Here are all the cards currently in the system.", "Cards Found", choices=cards_list)
+    none_checker(card_name)  # checks if card_name = None
+    card_name = card_name.capitalize()  # if not, capitalise
+    card_stats = cards.get(card_name)  # import the stats from the selected card
+    items = "\n".join([f"{monster}: {stat}" for monster, stat in card_stats.items()])  # formats the text
+    # Display formatted details of the monster card and prompt user for input to proceed
+    confirm = ""  # create a new variable
+    while confirm != "Confirm":  # while loop checking when user confirms exit
+        proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
+                               "Card Details", choices=("Edit", "Delete", "Cancel"))
+        if proceed == "Edit":  # if user presses the "Edit" button, edit card
+            print(">edit card<")
+        elif proceed == "Delete":  # if delete, ask to confirm delete
+            confirm = eg.buttonbox(f"Please confirm you want to delete the card '{card_name}'.",
+                                   "Confirm Delete", choices=("Confirm", "Cancel"))
+            if confirm == "Confirm":  # if they confirm, delete card
+                cards.pop(card_name)
+                eg.msgbox(f"'{card_name}' deleted.", "Card Deleted")  # display confirmation message
+                return
+            elif confirm == "Cancel":
+                confirm = ""
+        else:  # if Cancel, return to main menu.
+            return
 
 
 # Main code...
