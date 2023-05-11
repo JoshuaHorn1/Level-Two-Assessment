@@ -1,15 +1,15 @@
-"""Monster Cards Base Code - Version 1
+"""Monster Cards Base Code - Version 2
 Components added after being tested/trialled and finalised
 Added 03_add_monster_v5 (and 3.1 None Checker Component)
 Added 'attributes' list from 03_add_monster_v5 component
 Calls add_monster() function from main menu
 Added 04_find_monster_v5
 Calls find_monster() from main menu
+Removed redundant 'global cards' declaration
 """
 
-# Imports/Globals...
+# Imports...
 import easygui as eg  # importing easygui as 'eg' to save time later
-global cards
 
 
 # Lists/Dictionaries...

@@ -1,4 +1,4 @@
-"""Find Monster - Version 4
+"""Find Monster - Version 5
 A Component to find specific cards within the 'cards' dictionary.
 Developed as choicebox
 Added more comments
