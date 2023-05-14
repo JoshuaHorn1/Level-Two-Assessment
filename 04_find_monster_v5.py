@@ -97,6 +97,7 @@ def find_monster():
             if confirm == "Confirm":  # if they confirm, delete card
                 cards.pop(card_name)
                 eg.msgbox(f"'{card_name}' deleted.", "Card Deleted")  # display confirmation message
+                print(cards)
                 return
             elif confirm == "Cancel":
                 confirm = ""
