@@ -1,9 +1,8 @@
-"""Edit Monster - Version 2
+"""Edit Monster - Version 3
 A component to edit a monster card
-Created while loop to check for Finish
-Added an edited version of 3.1 None Checker for testing
-developed a new version of 3.1 None Checker specifically for this component (3.2 None Checker Edit)
-Added name change
+Added stats change
+Bug fixes
+Prints 'cards' for testing
 """
 import easygui as eg  # importing easygui as 'eg' to save time later
 cards = {
@@ -82,19 +81,30 @@ def edit_monster(og_card_name, og_card_stats):
                             "Edit Card", choices=("Change Name", "Change Stats", "Finish"))
         if edit == "Change Name":
             edit_value = 1
-            new_card_name = eg.enterbox("What is the new name of the card?", "Enter Name")
-            if new_card_name is None:
-                return
-            new_card_name = new_card_name.capitalize()
+            check_card_name = eg.enterbox("What is the new name of the card?", "Enter Name")
+            if check_card_name is None:
+                edit_monster(new_card_name, new_card_stats)
+            new_card_name = check_card_name.capitalize()
         elif edit == "Change Stats":
             edit_value = 1
+            attribute_edit = eg.buttonbox("Which attribute/stat would you like to change?", "Which Attribute?",
+                                          choices=("Strength", "Cunning", "Stealth", "Speed", "Cancel"))
+            if attribute_edit != "Cancel":
+                new_value = eg.integerbox(f"What is the new value for {attribute_edit}? (1-25)",
+                                          lowerbound=1, upperbound=25)
+                if new_value is None:
+                    edit_monster(new_card_name, new_card_stats)
+                new_card_stats.update({attribute_edit: new_value})
         else:
             if edit_value == 1:
                 save = eg.buttonbox("Would you like to save your changes?", "Save?", choices=("Yes", "No"))
                 if save == "Yes":
                     full_card = {new_card_name: new_card_stats}
+                    print(cards)
                     cards.pop(og_card_name)
+                    print(cards)
                     cards.update(full_card)
+                    print(cards)
                     return
                 else:
                     return
