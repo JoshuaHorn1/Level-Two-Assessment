@@ -3,6 +3,7 @@ Components added after being tested/trialled and finalised
 Added 05_edit_monster_v5
 Added edit_monster() calling in add_monster() and find_monster()
 Updated add_monster() and find_monster() to deal with the returned value from edit_monster()
+Text changes
 """
 
 # Imports...
@@ -132,7 +133,7 @@ def add_monster():
         items = "\n".join([f"{item}: {stat}" for item, stat in card_stats.items()])  # formats text
         # Displays the complete card and gets user input for how to proceed
         proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
-                               "Card Details", choices=("Use", "Edit", "Cancel"))
+                               "ADD CARD MENU", choices=("Use", "Edit", "Cancel"))
         if proceed == "Use":  # checks if user clicks 'Use'
             cards.update(full_card)  # adds new card to dictionary
             eg.msgbox(f"{card_name} has been added to the dictionary.", "Card Added")  # display message
@@ -142,9 +143,6 @@ def add_monster():
             if edited_card != "No Changes":  # if the function doesn't return "No Changes"...
                 card_name = list(edited_card.keys())[0]
                 card_stats = edited_card[card_name]
-                return  # return to main menu
-            else:
-                return  # return to main menu
         else:  # checks if user clicked 'Cancel'
             return  # returns to main menu
 
@@ -163,7 +161,7 @@ def find_monster():
     confirm = ""  # create a new variable
     while confirm != "Confirm":  # while loop checking when user confirms exit/delete
         proceed = eg.buttonbox(f"Here is the card '{card_name}':\n{items}\n\nWhat would you like to do with it?",
-                               "Card Details", choices=("Edit", "Delete", "Cancel"))
+                               "FIND CARD MENU", choices=("Edit", "Delete", "Cancel"))
         if proceed == "Edit":  # if user presses the "Edit" button, edit card
             edited_card = edit_monster(card_name, card_stats)  # calls on the edit_monster() function with card values
             if edited_card != "No Changes":  # if the function doesn't return "No Changes"...
@@ -197,7 +195,7 @@ def edit_monster(og_card_name, og_card_stats):
     while edit != "Finish":  # a while loop detecting if the user ever wants clicks 'Finish'
         items = "\n".join([f"{item}: {stat}" for item, stat in new_card_stats.items()])  # formats text
         edit = eg.buttonbox(f"Here is the card '{new_card_name}':\n{items}\n\nWhat would you like to do?",
-                            "Edit Card", choices=("Change Name", "Change Stats", "Finish"))
+                            "EDIT CARD MENU", choices=("Change Name", "Change Stats", "Finish"))
         if edit == "Change Name":  # if user clicks 'Change Name' button...
             edit_value = 1  # set edit value to 1 - user has made edit
             check_card_name = eg.enterbox("What is the new name of the card?", "Enter Name")  # asks for new card name
@@ -209,7 +207,7 @@ def edit_monster(og_card_name, og_card_stats):
             attribute_edit = eg.buttonbox("Which attribute/stat would you like to change?", "Which Attribute?",
                                           choices=("Strength", "Cunning", "Stealth", "Speed", "Cancel"))
             if attribute_edit != "Cancel":  # if user doesnt click cancel, get value for attribute
-                new_value = eg.integerbox(f"What is the new value for {attribute_edit}? (1-25)",
+                new_value = eg.integerbox(f"What is '{new_card_name}'s' new {attribute_edit} value? (1-25)",
                                           lowerbound=1, upperbound=25)
                 if new_value is not None:  # if user doesnt click cancel, update card_stats
                     new_card_stats.update({attribute_edit: new_value})

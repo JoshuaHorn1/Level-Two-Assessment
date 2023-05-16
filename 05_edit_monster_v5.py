@@ -103,13 +103,15 @@ def edit_monster(og_card_name, og_card_stats):
                 if save == "Yes":  # if 'Yes', return new values
                     full_card = {new_card_name: new_card_stats}
                     return full_card
+                    print("save changes")
                 else:  # if 'No', return "No Changes"
+                    print("dont save changes")
                     return "No Changes"
             else:  # if no changes were made, return "No Changes"
                 return "No Changes"
 
 
-def test():
+def test():  # a function mimicking the data that the edit function will receive
     card_name = "Stoneling"
     card_stats = {"Strength": 7, "Cunning": 15, "Stealth": 25, "Speed": 1}
     edit_monster(card_name, card_stats)
