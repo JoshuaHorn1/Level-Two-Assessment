@@ -4,6 +4,7 @@ Added 05_edit_monster_v5
 Added edit_monster() calling in add_monster() and find_monster()
 Updated add_monster() and find_monster() to deal with the returned value from edit_monster()
 Text changes
+Added 06_print_monsters_v3
 """
 
 # Imports...
@@ -92,8 +93,8 @@ def main_menu(proceed):
                 find_monster()
             elif proceed == "Add Card":  # if ' Add Card button is pressed, etc...
                 add_monster()
-            elif proceed == "List Cards":
-                print(">list cards<")
+            elif proceed == "Print Cards":
+                print(">print cards<")
             elif proceed == "Help":
                 print(">show help menu<")
             proceed = eg.buttonbox("How would you like to proceed?", "MAIN MENU",
@@ -222,6 +223,20 @@ def edit_monster(og_card_name, og_card_stats):
                     return "No Changes"
             else:  # if no changes were made, return "No Changes"
                 return "No Changes"
+
+
+def print_monsters():
+    print("~ ~ ~ FULL CARD LIST ~ ~ ~\n--------------------------\n")  # prints a beginning to the dictionary
+    for card_name, card_stats in cards.items():  # repeats the print for each item in the dictionary
+        print(f"{card_name.capitalize()}:")  # prints name of card
+        for attribute, value in card_stats.items():  # for each attribute, take its value and print
+            print(f"- {attribute}: {value}")
+        print()
+    print("--------------------------")  # print an end separation barrier
+    print()
+    # Display a confirmation message
+    eg.msgbox("A full list of the Monster Cards has been sent to the python console.", "Cards Printed")
+    return  # return to main menu
 
 
 # Main code...

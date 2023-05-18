@@ -103,9 +103,7 @@ def edit_monster(og_card_name, og_card_stats):
                 if save == "Yes":  # if 'Yes', return new values
                     full_card = {new_card_name: new_card_stats}
                     return full_card
-                    print("save changes")
                 else:  # if 'No', return "No Changes"
-                    print("dont save changes")
                     return "No Changes"
             else:  # if no changes were made, return "No Changes"
                 return "No Changes"
