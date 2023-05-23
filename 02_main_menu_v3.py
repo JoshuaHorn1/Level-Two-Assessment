@@ -1,5 +1,6 @@
 """Main Menu - Version 3
 A component to display the main menu and branch to other components
+Developed as while loop
 Converted to a function after trialling
 """
 

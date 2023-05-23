@@ -74,7 +74,7 @@ def none_checker(check):
         return
 
 
-def find_monster():
+def find_monster_1():
     cards_list = []
     for item in cards:
         cards_list.append(item)
@@ -97,4 +97,27 @@ def find_monster():
         return
 
 
-find_monster()
+def find_monster_2():
+    query = eg.enterbox("Enter the card name to search for:", "Enter Query")
+    none_checker(query)
+    query = query.upper()
+    proceed = ""
+    while proceed != "Cancel":
+        if query in cards:
+            searched_for = cards.get(query)
+            items = "\n".join([f"{monster}: {stat}" for monster, stat in searched_for.items()])
+            proceed = eg.buttonbox(f"Here is the combo, {query.capitalize()}:\n"
+                                   f"{items}\n"
+                                   f"\n"
+                                   f"What would you like to do with it?", "Query Found",
+                                   choices=("Edit", "Delete", "Cancel"))
+            if proceed == "Edit":
+                print(">Edit card<")
+            elif proceed == "Delete":
+                print(">Delete card<")
+            else:
+                quit()
+
+
+find_monster_1()
+find_monster_2()
