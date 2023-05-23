@@ -1,9 +1,7 @@
-"""Monster Cards Base Code - Version 3
+"""Monster Cards Base Code - Version 4
 Components added after being tested/trialled and finalised
-Added 05_edit_monster_v5
-Added edit_monster() calling in add_monster() and find_monster()
-Updated add_monster() and find_monster() to deal with the returned value from edit_monster()
-Text changes
+Added 06_print_monsters_v3
+Added 07_help_button_v1
 """
 
 # Imports...
@@ -93,9 +91,9 @@ def main_menu(proceed):
             elif proceed == "Add Card":  # if ' Add Card button is pressed, etc...
                 add_monster()
             elif proceed == "Print Cards":
-                print(">print cards<")
+                print_monsters()
             elif proceed == "Help":
-                print(">show help menu<")
+                help_button()
             proceed = eg.buttonbox("How would you like to proceed?", "MAIN MENU",
                                    choices=("Find Card", "Add Card", "Print Cards", "Help", "Exit"))
         if proceed == "Exit":  # if user wants to exit, ask them to confirm exit
@@ -222,6 +220,67 @@ def edit_monster(og_card_name, og_card_stats):
                     return "No Changes"
             else:  # if no changes were made, return "No Changes"
                 return "No Changes"
+
+
+def print_monsters():
+    print("~ ~ ~ FULL CARD LIST ~ ~ ~\n--------------------------\n")  # prints a beginning to the dictionary
+    for card_name, card_stats in cards.items():  # repeats the print for each item in the dictionary
+        print(f"{card_name.capitalize()}:")  # prints name of card
+        for attribute, value in card_stats.items():  # for each attribute, take its value and print
+            print(f"- {attribute}: {value}")
+        print()
+    print("--------------------------")  # print an end separation barrier
+    print()
+    # Display a confirmation message
+    eg.msgbox("A full list of the Monster Cards has been sent to the python console.", "Cards Printed")
+    return  # return to main menu
+
+
+def help_button():
+    # Asks user what they need help with
+    user_help = eg.buttonbox("What do you need help with?", "HELP MENU",
+                             choices=("'Find'", "'Add'", "'Edit'", "'Delete'", "'Print'", "'Help'", "'Exit'", "Cancel"))
+    while user_help != "Cancel":  # a while loop checking that the user hasn't clicked 'Cancel'
+        if user_help == "'Find'":  # If user clicks 'Find', display information about 'Find' Button
+            eg.msgbox("This is accessed from a button on the main menu called 'Find Card'. Clicking it will display a "
+                      "list of all the cards in the system. Selecting a card will then display two options. 'Edit' or "
+                      "'Delete'. Clicking 'Edit' will allow you to edit the details of the card, and clicking delete "
+                      "will delete it. You can cancel at any point to return to the main menu.", "'Find' Help")
+        elif user_help == "'Add'":  # if user clicks 'Add', display...
+            eg.msgbox("This is accessed from a button on the main menu called 'Add Card'. Clicking it will allow you "
+                      "to create a new monster card. It will prompt you for the name of the card, and a value for each "
+                      "of its four attributes. Once created you will be prompted with two options, 'Edit' or 'Use'. "
+                      "Clicking 'Edit' will allow you to edit its details if you made a mistake, and 'Use' will add it "
+                      "to the system. You can cancel at any point to return to the main menu.", "'Add' Help")
+        elif user_help == "'Edit'":  # etc...
+            eg.msgbox("This is accessed through buttons on the 'Add Card' and 'Find Card' menus. Clicking it will "
+                      "allow you to choose whether to edit the name of a monster card or its stats. You can choose "
+                      "which stat to edit and then the new value. You can cancel at any point to return to the Edit "
+                      "Menu. If you make no changes to the card and click 'Finish' in the Edit Menu, it will return no "
+                      "changes to the previous component. If you do make changes, you will be asked whether or not you "
+                      "want to save those changes.", "'Edit Help'")
+        elif user_help == "'Delete'":
+            eg.msgbox("This is accessed from a button in the Find Card menu called 'Delete'. When clicking it, it "
+                      "will ask you to confirm that you want to delete the card. If you do confirm, it will be removed "
+                      "from the cards dictionary. If you don't confirm, it will return to the Find Menu.",
+                      "'Delete' Help")
+        elif user_help == "'Print'":
+            eg.msgbox("This is accessed from a button on the main menu called 'Print Cards'. Clicking it will send a "
+                      "full list of all the monster cards currently in the system so that it can be printed/exported. "
+                      "A confirmation message will pop up, and then you will be sent back to the main menu.",
+                      "'Print' Help")
+        elif user_help == "'Help'":
+            eg.msgbox("This is accessed from a button on the main menu called 'Help'. Clicking it will display a Help "
+                      "Menu, from which you can view helpful tips about each part of the program in case you are "
+                      "confused or stuck.", "'Help' Help")
+        elif user_help == "'Exit'":
+            eg.msgbox("This is accessed from a button on the main menu called 'Exit'. Clicking it will prompt you to "
+                      "confirm that you want to exit the program.\n\n*Important Notice* - Changes are not saved when "
+                      "you exit the program.", "'Exit' Help")
+        user_help = eg.buttonbox("What do you need help with?", "HELP MENU",
+                                 choices=("'Find'", "'Add'", "'Edit'", "'Delete'",
+                                          "'Print'", "'Help'", "'Exit'", "Cancel"))  # prompts for next help input
+    return  # when user clicks cancel, return to main menu
 
 
 # Main code...
