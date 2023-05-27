@@ -1,14 +1,4 @@
-"""Monster Cards Base Code - Version 5
-Components added after being tested/trialled and finalised
-Took end-user-feedback onboard - fixed discovered errors/bugs
- - Fixed text issues on instructions, help menu, exit
- - Fixed when all cards are deleted, system no longer crashes through
- find_monster() function/component
- - Added text changes to the help menu explaining the code addition of checking
- if cards are in the dictionary
-Formatted text to PEP8 requirements
- - Fixed accuracy of asking user to save changes in edit_monster() function
-"""
+"""Assembled Outcome"""
 
 # Imports...
 import pickle  # importing pickle to save the data
