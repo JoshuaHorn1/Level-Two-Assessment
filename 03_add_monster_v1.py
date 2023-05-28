@@ -2,6 +2,7 @@
 A component to add a new monster card to dictionary
 Gets user input card name
 Gets statistics for each attribute of card
+Trialling method 1 vs method 2
 """
 import easygui as eg
 cards = {
@@ -69,6 +70,19 @@ cards = {
 card_stats = {}
 attributes = ["Strength", "Cunning", "Stealth", "Speed"]
 
+# Method 1...
+card_name = cards.update(eg.enterbox("What is the name of the new Monster Card?", "Enter Name").capitalize())
+if card_name in cards:
+    cards.pop(str(card_name))
+else:
+    for item in attributes:
+        attribute_value = eg.integerbox(f"What is {card_name}'s {item}? (1-25)",
+                                        "Enter Attribute", lowerbound=1, upperbound=25)
+        cards.update({card_name: {item: attribute_value}})
+full_card = cards.get(str(card_name))
+print(full_card)
+
+# Method 2...
 card_name = eg.enterbox("What is the name of the new Monster Card?", "Enter Name").capitalize()
 while card_name == "" or card_name in cards:
     if card_name == "":
@@ -77,7 +91,8 @@ while card_name == "" or card_name in cards:
         eg.msgbox("This card name already exists. Please enter a unique name.", "Error")
     card_name = eg.enterbox("What is the name of the new Monster Card?", "Enter Name").capitalize()
 for item in attributes:
-    attribute_value = eg.integerbox(f"What is {card_name}'s {item}? (1-25)", "Enter Attribute", lowerbound=1, upperbound=25)
+    attribute_value = eg.integerbox(f"What is {card_name}'s {item}? (1-25)",
+                                    "Enter Attribute", lowerbound=1, upperbound=25)
     card_stats.update({item: attribute_value})
 full_card = ({card_name: card_stats})
 print(full_card)

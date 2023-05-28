@@ -2,6 +2,7 @@
 A component to list all the cards in the system
 Text formatting
 Added confirmation message
+Trialling text formatting version
 """
 cards = {
     "Stoneling": {
@@ -67,6 +68,15 @@ cards = {
 }  # a dictionary containing all the monster card data
 import easygui as eg  # importing easygui as 'eg' to save time later
 
+# Text formatting version 1...
+print("---Full Cards List:---\n")
+for card_name, card_stats in cards.items():
+    print(f"Name: '{card_name.capitalize()}:'")
+    for attribute, value in card_stats.items():
+        print(f"It's {attribute} is {value}.")
+    print()
+
+# Text formatting version 2...
 print("~ ~ ~ FULL CARD LIST ~ ~ ~\n--------------------------\n")
 for card_name, card_stats in cards.items():
     print(f"{card_name.capitalize()}:")
@@ -75,4 +85,5 @@ for card_name, card_stats in cards.items():
     print()
 print("--------------------------")
 print()
-eg.msgbox("Full list of Monster Cards has been sent to the python console.", "Cards Printed")
+eg.msgbox("Full list of Monster Cards has been sent to the python console.",
+          "Cards Printed")

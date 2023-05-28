@@ -25,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lvl-2-Preassessment" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
@@ -33,7 +33,7 @@
       <recent name="C:\Users\Joshu\OneDrive - Middleton Grange School\Computer Science\Yr12\Level-Two-Assessment" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Assembled Outcome">
+  <component name="RunManager" selected="Python.06_print_monsters_v2">
     <configuration name="00_MC_base_v5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Level-Two-Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,7 +97,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="08_save_data_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="06_print_monsters_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Level-Two-Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -109,7 +109,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/08_save_data_v2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/06_print_monsters_v2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,11 +141,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.06_print_monsters_v2" />
         <item itemvalue="Python.Assembled Outcome" />
         <item itemvalue="Python.00_MC_base_v6" />
         <item itemvalue="Python.02_main_menu_v2" />
         <item itemvalue="Python.00_MC_base_v5" />
-        <item itemvalue="Python.08_save_data_v2" />
       </list>
     </recent_temporary>
   </component>

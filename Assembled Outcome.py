@@ -1,4 +1,4 @@
-"""Complete Assembled Outcome"""
+"""Assembled Outcome"""
 
 # Imports...
 import pickle  # importing pickle to save the data
@@ -424,7 +424,7 @@ new_user = eg.buttonbox("Welcome to the Monster Card System!\nWould you like "
 if new_user == "Yes":  # if yes, show instructions
     eg.msgbox("This program stores the names and details of different Monster Cards, as well as allowing you to search "
               "through the cards, add new cards, delete cards, edit cards, or list them and export the full details to "
-              "the python console.\n\nFarther information about each button can be accessed from the help menu",
+              "the python console.\n\nFurther information about each button can be accessed from the help menu",
               "Instructions")
 load_data()  # call on the load_data() function
 # Call on main menu function with user input

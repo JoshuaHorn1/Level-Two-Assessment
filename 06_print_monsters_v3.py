@@ -1,5 +1,6 @@
 """Print Monsters - Version 3
 A component to list all the cards in the system
+Developed version 2 text formatting
 Converted to function
 Added comments
 """
