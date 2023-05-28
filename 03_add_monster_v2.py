@@ -1,5 +1,6 @@
 """Add Monster - Version 2
 A component to add a new monster card to dictionary
+Developed method 2 after trialling
 Displays created card details and asks for user proceed prompt
 """
 import easygui as eg

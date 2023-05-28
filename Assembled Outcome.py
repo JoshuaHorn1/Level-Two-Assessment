@@ -124,7 +124,7 @@ def add_monster():
     none_checker(card_name)  # calls on none checker function
     # If none checker returns nothing, capitalise the card name
     card_name = card_name.capitalize()
-    # checks if user input is original or blank
+    # Checks if user input is original or blank
     while card_name == "" or card_name in cards:
         if card_name == "":
             eg.msgbox("This box cannot be empty.", "Error")  # display error
