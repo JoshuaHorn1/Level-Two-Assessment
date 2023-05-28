@@ -69,7 +69,7 @@ cards = {
         },
     }  # a dictionary containing all the monster card data
 # A list containing all the different variables of a card
-attributes = ["Strength", "Cunning", "Stealth", "Speed"]
+ATTRIBUTES = ["Strength", "Cunning", "Stealth", "Speed"]
 
 
 # Functions...
@@ -138,7 +138,7 @@ def add_monster():
         none_checker(card_name)  # calls on none checker function
         # iI none checker returns nothing, capitalise the card name
         card_name = card_name.capitalize()
-    for item in attributes:  # for each attribute, get user input value
+    for item in ATTRIBUTES:  # for each attribute, get user input value
         attribute_value = eg.integerbox(f"What is {card_name}'s {item}? "
                                         f"(1-25)", f"Enter {item}",
                                         lowerbound=1, upperbound=25)
