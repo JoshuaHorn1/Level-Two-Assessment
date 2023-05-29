@@ -419,7 +419,7 @@ def load_data():
 # Main code...
 # Checks if the user wants to see instructions
 new_user = eg.buttonbox("Welcome to the Monster Card System!\nWould you like "
-                        "to a short set of instructions?",
+                        "to see a short set of instructions?",
                         "Welcome!", choices=("Yes", "No"))
 if new_user == "Yes":  # if yes, show instructions
     eg.msgbox("This program stores the names and details of different Monster "
