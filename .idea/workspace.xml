@@ -33,7 +33,7 @@
       <recent name="C:\Users\Joshu\OneDrive - Middleton Grange School\Computer Science\Yr12\Level-Two-Assessment" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.06_print_monsters_v2">
+  <component name="RunManager" selected="Python.Assembled Outcome">
     <configuration name="00_MC_base_v5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Level-Two-Assessment" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,8 +141,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.06_print_monsters_v2" />
         <item itemvalue="Python.Assembled Outcome" />
+        <item itemvalue="Python.06_print_monsters_v2" />
         <item itemvalue="Python.00_MC_base_v6" />
         <item itemvalue="Python.02_main_menu_v2" />
         <item itemvalue="Python.00_MC_base_v5" />
